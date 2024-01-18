@@ -1,0 +1,54 @@
+﻿CREATE DATABASE DBCONTACT
+
+USE  DBCONTACT
+
+CREATE TABLE CONTACT(
+IdContact int identity,
+Firstname varchar(100),
+Lastname varchar(100),
+Phone varchar(100),
+Email varchar(100)
+)
+
+
+insert into CONTACT(Firstname,Lastname,Phone,Email) values
+('Franco','Gonzalez','3445404097','fdg2112@gmail.com'),
+('Fernando','Picart','3442400400','ferpicart@gmail.com'),
+('Mariana','Barreto','3445454545','marbar@gmail.com')
+
+
+select * from CONTACT
+
+
+create procedure sp_Register(
+@Firstname varchar(100),
+@Lastname varchar(100),
+@Phone varchar(100),
+@Email varchar(100) 
+)
+as
+begin
+	insert into CONTACT(Firstname,Lastname,Phone,Email) values (@Firstname,@Lastname,@Phone,@Email)
+end
+
+
+create procedure sp_Edit(
+@IdContact int,
+@Firstname varchar(100),
+@Lastname varchar(100),
+@Phone varchar(100),
+@Email varchar(100) 
+)
+as
+begin
+	update CONTACT set Firstname = @Firstname, Lastname = @Lastname, Phone = @Phone , Email = @Email where IdContact = @IdContact
+end
+
+
+create procedure sp_Delete(
+@IdContact int
+)
+as
+begin
+	delete from CONTACT where IdContact = @IdContact
+end
