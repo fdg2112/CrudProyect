@@ -1,0 +1,40 @@
+﻿@model CrudProyect.Models.Contact
+
+@{
+    ViewBag.Title = "AddContact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Agregar Contacto</h2>
+
+<div class="row" style="margin-top:30px">
+    <div class="col-sm-12">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h4>Nuevo contacto</h4>
+            </div>
+            <div class="panel-body">
+                <form action="@Url.Action("AddContact","Contact")" method="post">
+                    <div class="form-group">
+                        <label>Nombres</label>
+                        <input type="text" class="form-control" name="Firstname" />
+                    </div>
+                    <div class="form-group">
+                        <label>Apellidos</label>
+                        <input type="text" class="form-control" name="Lastname" />
+                    </div>
+                    <div class="form-group">
+                        <label>Telefono</label>
+                        <input type="text" class="form-control" name="Phone" />
+                    </div>
+                    <div class="form-group">
+                        <label>Correo</label>
+                        <input type="text" class="form-control" name="Email" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                    <a class="btn btn-warning" href="@Url.Action("Index","Contact")">Volver</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
